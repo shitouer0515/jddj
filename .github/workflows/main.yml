@@ -24,13 +24,6 @@ jobs:
         sudo -E apt-get clean -y
         git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
 
-    - name: Prepare
-      run: |
-        mkdir -p ~/.ssh
-        echo -e "${{ secrets.LXKEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan gitee.com > ~/.ssh/known_hosts
-
     - name: Clone main
       run: |
         git clone -b main https://github.com/passerby-b/JDDJ.git main
